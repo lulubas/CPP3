@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/06/25 03:47:22 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:29:41 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class ClapTrap {
         void beRepaired(unsigned int amount);
         void getInfo( void );
         
-    private:
+    protected:
         std::string _name;
         int _hitPoints;
         int _energyPoints;

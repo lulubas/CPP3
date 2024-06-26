@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/06/25 04:19:11 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:55:37 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap( std::string name ) : _name( name ), _hitPoints(10), _energyP
     std::cout << "ClapTrap " << _name << " created with parameterized constructor." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &other) : _name(other._name), _hitPoints(other._hitPoints), _energyPoints(other._energyPoints), _attackDamage(other._attackDamage) {
+ClapTrap::ClapTrap( const ClapTrap &other ) : _name(other._name), _hitPoints(other._hitPoints), _energyPoints(other._energyPoints), _attackDamage(other._attackDamage) {
     _name = _generateUniqueName( _name );
     _clapTrapMap[_name] = this;
     std::cout << "ClapTrap " << _name << " created with copy constructor." << std::endl;

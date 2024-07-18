@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/06/26 15:55:37 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/07/19 00:54:48 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ ClapTrap& ClapTrap::operator=( const ClapTrap &other ) {
 ClapTrap::~ClapTrap() {
     _clapTrapMap.erase( _name );
     std::cout << "ClapTrap " << _name << " is destructed." << std::endl;
+}
+
+int ClapTrap::getHitpoints( void ) {
+    return (_hitPoints);
 }
 
 void    ClapTrap::attack( const std::string& target ) {

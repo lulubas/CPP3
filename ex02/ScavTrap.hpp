@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/25 02:14:20 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/19 02:06:40 by lbastien         ###   ########.fr       */
+/*   Created: 2024/06/25 04:29:53 by lbastien          #+#    #+#             */
+/*   Updated: 2024/07/18 16:53:06 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int main( void ) {
-    
-    std::cout << std::endl;
-    
-    ClapTrap Louis("Louis");
-    ClapTrap Tom("Tom");
-    ClapTrap Henry;
-    ClapTrap Paul = Henry;
+class ScavTrap : public ClapTrap {
+        public:
+                ScavTrap();
+                ScavTrap( std::string name );
+                ScavTrap( const ScavTrap &other );
+                ScavTrap& operator=( const ScavTrap &other );
+                ~ScavTrap();
+            
+                void attack(const std::string& target);
+                void guardGate();
+};
 
-    Louis.getInfo();
-    Tom.getInfo();
-    Tom.attack( "Default_1" );
-    Paul.getInfo();
-    
-    return 0;
-}
+#endif

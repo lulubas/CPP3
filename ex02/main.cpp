@@ -6,25 +6,31 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:14:20 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/19 02:06:40 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/07/19 02:06:14 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main( void ) {
     
     std::cout << std::endl;
     
-    ClapTrap Louis("Louis");
-    ClapTrap Tom("Tom");
-    ClapTrap Henry;
-    ClapTrap Paul = Henry;
+    ScavTrap Louis( "Louis" );
+    ClapTrap Tom( "Tom" );
+    FragTrap Lucy( "Lucy" );
+    ScavTrap Paul = Louis;
 
-    Louis.getInfo();
-    Tom.getInfo();
-    Tom.attack( "Default_1" );
     Paul.getInfo();
+    Tom.getInfo();
+    Lucy.getInfo();
+    Tom.attack( "Louis_1" );
+    Paul.attack( "Lucy" );
+    Lucy.attack( "Louis_1" );
+    Paul.getInfo();
+    Tom.getInfo();
+    Lucy.getInfo();
     
     return 0;
 }

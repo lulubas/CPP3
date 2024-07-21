@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/06/25 23:46:19 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/07/21 12:30:04 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include<string>
 #include<iostream>
+#include<sstream>
 #include<map>
 
 class ClapTrap {

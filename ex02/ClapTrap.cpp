@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/19 00:54:48 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/07/21 12:22:59 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,11 @@ void    ClapTrap::getInfo( void ) {
 std::string ClapTrap::_generateUniqueName( const std::string &rootName ) {
     std::string uniqueName;
     uniqueName = rootName;
-    while (_clapTrapMap.find(uniqueName) != _clapTrapMap.end())
-        uniqueName = rootName + "_" + std::to_string(_nameCounter++);
+    while (_clapTrapMap.find(uniqueName) != _clapTrapMap.end()) {
+        std::ostringstream oss;
+        oss << rootName << "_" << _nameCounter++;
+        uniqueName = oss.str();
+    }
     std::cout << "New name " << uniqueName << " generated." << std::endl;
     return uniqueName;
 }

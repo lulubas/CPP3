@@ -6,31 +6,80 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:14:20 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/19 02:06:14 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/07/23 02:27:47 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-int main( void ) {
+int main(void) {
     
     std::cout << std::endl;
     
-    ScavTrap Louis( "Louis" );
-    ClapTrap Tom( "Tom" );
-    FragTrap Lucy( "Lucy" );
-    ScavTrap Paul = Louis;
+    std::cout << "==============" << std::endl;
+    std::cout << "CREATING PAUL" << std::endl;
+    std::cout << "==============" << std::endl;
+    FragTrap Paul;
+    
+    std::cout << std::endl;
+    std::cout << "==============" << std::endl;
+    std::cout << "CREATING LOUIS" << std::endl;
+    std::cout << "==============" << std::endl;
+    FragTrap Louis("Louis");
+
+    std::cout << std::endl;
+    std::cout << "==============" << std::endl;
+    std::cout << "CREATING HENRY" << std::endl;    
+    std::cout << "==============" << std::endl;
+    FragTrap Henry(Paul);
+   
+    std::cout << std::endl;
+    std::cout << "==============" << std::endl;
+    std::cout << "CREATING MAX" << std::endl;    
+    std::cout << "==============" << std::endl;
+    FragTrap Max; 
+    Max = Louis;
+
+    std::cout << std::endl;
+    std::cout << "==============" << std::endl;
+    std::cout << "CREATING EVA" << std::endl;    
+    std::cout << "==============" << std::endl;
+    ScavTrap Eva("Eva"); 
 
     Paul.getInfo();
-    Tom.getInfo();
-    Lucy.getInfo();
-    Tom.attack( "Louis_1" );
-    Paul.attack( "Lucy" );
-    Lucy.attack( "Louis_1" );
+    Louis.getInfo();
+    Henry.getInfo();
+    Max.getInfo();
+    Eva.getInfo();
+    
+    Paul.attack("Louis");
+    Louis.attack("Default_1");
+    Louis.beRepaired(3);
+    Louis.takeDamage(100);
+
+    Louis.getInfo();
+    Henry.getInfo();
+
+    Paul.attack("Eva");
+    Eva.beRepaired(100);    
+    Eva.attack("Default");
+
     Paul.getInfo();
-    Tom.getInfo();
-    Lucy.getInfo();
+    Eva.getInfo();
+    
+    Paul.attack("Louis");
+    Louis.attack("Louis");
+    Max.attack("Random");
+
+    std::cout << std::endl;
+    Eva.guardGate();
+    Max.highFivesGuys();
+    
+    std::cout << std::endl;
+    std::cout << "==============" << std::endl;
+    std::cout << "DESTRUCTORS" << std::endl;    
+    std::cout << "==============" << std::endl;
     
     return 0;
 }

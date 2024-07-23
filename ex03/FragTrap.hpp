@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 04:29:53 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/21 14:04:21 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/07/23 00:48:25 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 class FragTrap : virtual public ClapTrap {
         public:
                 FragTrap();
-                FragTrap( std::string name );
-                FragTrap( const FragTrap &other );
-                FragTrap& operator=( const FragTrap &other );
+                FragTrap(std::string name);
+                FragTrap(const FragTrap &other);
+                FragTrap& operator=(const FragTrap &other);
                 ~FragTrap();
             
                 void attack(const std::string& target);

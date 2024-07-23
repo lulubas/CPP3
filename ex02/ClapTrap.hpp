@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/21 12:16:14 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/07/23 02:15:22 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,28 @@
 class ClapTrap {
     public:
         ClapTrap();
-        ClapTrap( std::string name );
-        ClapTrap( const ClapTrap &other );
-        ClapTrap& operator=( const ClapTrap &other );
+        ClapTrap(std::string name);
+        ClapTrap(const ClapTrap &other);
+        ClapTrap& operator=(const ClapTrap &other);
         ~ClapTrap();
 
-        int getHitpoints( void );
         virtual void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        void getInfo( void );
+        void getInfo(void);
+
+        int getHitpoints(void);
         
     protected:
         std::string _name;
         int _hitPoints;
         int _energyPoints;
         int _attackDamage;
-        
+
         static int _nameCounter;
         static std::map<std::string, ClapTrap*> _clapTrapMap;
 
-        std::string _generateUniqueName( const std::string &rootName );
+        std::string _generateUniqueName(const std::string &rootName);
 };
 
 #endif

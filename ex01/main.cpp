@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:14:20 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/23 02:27:39 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:20:24 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,25 +52,17 @@ int main(void) {
     Max.getInfo();
     Eva.getInfo();
     
-    Paul.attack("Louis");
-    Louis.attack("Default_1");
+    Paul.attack("Another ScavTrap");
+    Louis.attack("Max");
     Louis.beRepaired(3);
     Louis.takeDamage(100);
 
-    Louis.getInfo();
-    Henry.getInfo();
-
-    Paul.attack("Eva");
-    Eva.beRepaired(100);    
-    Eva.attack("Default");
-
     Paul.getInfo();
+    Louis.getInfo();
+    
+    Eva.attack("Another ClapTrap");
     Eva.getInfo();
     
-    Paul.attack("Louis");
-    Louis.attack("Louis");
-    Max.attack("Random");
-
     std::cout << std::endl;
     Paul.guardGate();
     Max.guardGate();

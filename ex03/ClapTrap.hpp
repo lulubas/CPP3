@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:32:51 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/23 02:39:32 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:04:41 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include<string>
 #include<iostream>
 #include<sstream>
-#include<map>
+
+std::string iToString(const int i);
 
 class ClapTrap {
     public:
@@ -40,8 +41,6 @@ class ClapTrap {
         int _attackDamage;
         
         static int _nameCounter;
-        static std::map<std::string, ClapTrap*> _clapTrapMap;
-
         std::string _generateUniqueName(const std::string &rootName);
 };
 

@@ -15,14 +15,18 @@
 DiamondTrap::DiamondTrap() : ClapTrap() {
     this->_name = ClapTrap::_name;
     ClapTrap::_name = _name + "_clap_name";
-    _energyPoints = 50;
+    _hitPoints = FragTrap::_hitPoints;
+    _energyPoints = ScavTrap::_energyPoints;
+    _attackDamage = FragTrap::_attackDamage;
     std::cout << "DiamondTrap " << _name << " created with default constructor." << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), FragTrap(name) {
     _name = name;
     ClapTrap::_name = _name + "_clap_name";
-    _energyPoints = 50;
+    _hitPoints = FragTrap::_hitPoints;
+    _energyPoints = ScavTrap::_energyPoints;
+    _attackDamage = FragTrap::_attackDamage;
     std::cout << "DiamondTrap " << _name << " created with parameterized constructor." << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:14:20 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/23 01:27:07 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:02:16 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,15 @@ int main(void) {
     Henry.getInfo();
     Max.getInfo();
     
-    Paul.attack("Louis");
+    Paul.attack("another");
     Louis.attack("Default");
     Louis.beRepaired(3);
     Louis.takeDamage(100);
 
     Louis.getInfo();
     
-    Paul.attack("Louis");
-    Louis.attack("Louis");
-    Max.attack("Random");
+    Paul.attack("Another Claptrap");
+    Louis.attack("Paul");
     
     std::cout << std::endl;
 

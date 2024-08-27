@@ -6,30 +6,24 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:39:37 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/23 02:31:16 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:00:29 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-std::map<std::string, ClapTrap*> ClapTrap::_clapTrapMap;
 int ClapTrap:: _nameCounter = 1;
 
 ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
     _name = _generateUniqueName(_name);
-    _clapTrapMap[_name] = this;
     std::cout << "ClapTrap " << _name << " created with default constructor." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-    _name = _generateUniqueName(_name);
-    _clapTrapMap[_name] = this;
     std::cout << "ClapTrap " << _name << " created with parameterized constructor." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) : _name(other._name), _hitPoints(other._hitPoints), _energyPoints(other._energyPoints), _attackDamage(other._attackDamage) {
-    _name = _generateUniqueName(_name);
-    _clapTrapMap[_name] = this;
     std::cout << "ClapTrap " << _name << " created with copy constructor." << std::endl;
 }
 
@@ -45,7 +39,6 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &other) {
 }
 
 ClapTrap::~ClapTrap() {
-    _clapTrapMap.erase(_name);
     std::cout << "ClapTrap " << _name << " is destructed." << std::endl;
 }
 
@@ -58,22 +51,11 @@ void    ClapTrap::attack(const std::string& target) {
         std::cout << "ClapTrap " << _name << " can't attack: it has no more energy points." << std::endl;
         return ;
     }
-    std::map<std::string, ClapTrap*>::iterator it = _clapTrapMap.find(target);
-    if (it == _clapTrapMap.end()) {
-        std::cout << "ClapTrap " << _name << " can't attack " << target << ": it does not exist." << std::endl;
-        return ;
-    }
-    ClapTrap* targetClapTrap = it->second;
-    if (this == targetClapTrap) {
+    if (target == this->_name) {
         std::cout << "ClapTrap can't attack himself" << std::endl;
         return ;
     }
-    if (targetClapTrap->_hitPoints <= 0) {
-        std::cout << "ClapTrap " << _name << " can't attack: " << target <<  " has no more hitpoints" << std::endl;
-        return ;
-    }
     std::cout << "ClapTrap " << _name << " attacks " << target << " to cause " << _attackDamage << " damage(s)." << std::endl;
-    targetClapTrap->takeDamage(_attackDamage);
     _energyPoints--;
 }
 
@@ -99,11 +81,13 @@ void    ClapTrap::getInfo(void) {
 
 std::string ClapTrap::_generateUniqueName(const std::string &rootName) {
     std::string uniqueName;
-    uniqueName = rootName;
-    while (_clapTrapMap.find(uniqueName) != _clapTrapMap.end()) {
-        std::ostringstream oss;
-        oss << uniqueName << "_" << _nameCounter++;
-        uniqueName = oss.str();
-    }
+    uniqueName = rootName + "_"; 
+    uniqueName.append(iToString(_nameCounter++));
     return uniqueName;
+}
+
+std::string iToString(const int i) {
+    std::ostringstream oss;
+    oss << i;
+    return oss.str();
 }

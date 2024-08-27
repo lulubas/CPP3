@@ -6,7 +6,7 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 04:31:56 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/23 02:37:58 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/27 19:05:00 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,11 @@ void    FragTrap::attack(const std::string& target) {
         std::cout << "FragTrap " << _name << " can't attack: it has no more energy points." << std::endl;
         return ;
     }
-    std::map<std::string, ClapTrap*>::iterator it = _clapTrapMap.find(target);
-    if (it == _clapTrapMap.end()) {
-        std::cout << "FragTrap " << _name << " can't attack " << target << ": it does not exist." << std::endl;
-        return ;
-    }
-    ClapTrap* targetClapTrap = it->second;
-    if (this == targetClapTrap) {
+    if (target == this->_name) {
         std::cout << "FragTrap can't attack himself" << std::endl;
         return ;
     }
-    if (targetClapTrap->getHitpoints() <= 0) {
-        std::cout << "FragTrap " << _name << " can't attack: " << target <<  " has no more hitpoints" << std::endl;
-        return ;
-    }
     std::cout << "FragTrap " << _name << " attacks " << target << " to cause " << _attackDamage << " damage(s)." << std::endl;
-    targetClapTrap->takeDamage(_attackDamage);
     _energyPoints--;
 }
 

@@ -6,13 +6,12 @@
 /*   By: lbastien <lbastien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:14:20 by lbastien          #+#    #+#             */
-/*   Updated: 2024/07/23 02:27:47 by lbastien         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:41:52 by lbastien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-
 int main(void) {
     
     std::cout << std::endl;
@@ -38,43 +37,24 @@ int main(void) {
     std::cout << "==============" << std::endl;
     std::cout << "CREATING MAX" << std::endl;    
     std::cout << "==============" << std::endl;
-    FragTrap Max; 
-    Max = Louis;
-
-    std::cout << std::endl;
-    std::cout << "==============" << std::endl;
-    std::cout << "CREATING EVA" << std::endl;    
-    std::cout << "==============" << std::endl;
-    ScavTrap Eva("Eva"); 
+    ScavTrap Max;
 
     Paul.getInfo();
     Louis.getInfo();
     Henry.getInfo();
     Max.getInfo();
-    Eva.getInfo();
     
-    Paul.attack("Louis");
-    Louis.attack("Default_1");
-    Louis.beRepaired(3);
-    Louis.takeDamage(100);
-
-    Louis.getInfo();
-    Henry.getInfo();
-
-    Paul.attack("Eva");
-    Eva.beRepaired(100);    
-    Eva.attack("Default");
+    Paul.attack("FragTrap");
+    Louis.attack("Max");
+    Louis.beRepaired(15);
+    Louis.takeDamage(25);
 
     Paul.getInfo();
-    Eva.getInfo();
+    Louis.getInfo();
     
-    Paul.attack("Louis");
-    Louis.attack("Louis");
-    Max.attack("Random");
-
     std::cout << std::endl;
-    Eva.guardGate();
-    Max.highFivesGuys();
+    Paul.highFivesGuys();
+    Max.guardGate();
     
     std::cout << std::endl;
     std::cout << "==============" << std::endl;

@@ -12,30 +12,32 @@
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap() {
-    this->_name = ClapTrap::_name;
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
+    _name = ClapTrap::_name;
     ClapTrap::_name = _name + "_clap_name";
-    _hitPoints = FragTrap::_hitPoints;
-    _energyPoints = ScavTrap::_energyPoints;
-    _attackDamage = FragTrap::_attackDamage;
+    ClapTrap::_hitPoints = FragTrap::_hitPoints;
+    ClapTrap::_energyPoints = ScavTrap::_energyPoints;
+    ClapTrap::_attackDamage = FragTrap::_attackDamage;
+    ScavTrap::_attackDamage = FragTrap::_attackDamage;
     std::cout << "DiamondTrap " << _name << " created with default constructor." << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), FragTrap(name) {
     _name = name;
     ClapTrap::_name = _name + "_clap_name";
-    _hitPoints = FragTrap::_hitPoints;
-    _energyPoints = ScavTrap::_energyPoints;
-    _attackDamage = FragTrap::_attackDamage;
+    ClapTrap::_hitPoints = FragTrap::_hitPoints;
+    ClapTrap::_energyPoints = ScavTrap::_energyPoints;
+    ClapTrap::_attackDamage = FragTrap::_attackDamage;
+    ScavTrap::_attackDamage = FragTrap::_attackDamage;
     std::cout << "DiamondTrap " << _name << " created with parameterized constructor." << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), ScavTrap(other), FragTrap(other) {
     _name = ClapTrap::_name;
     ClapTrap::_name = _name + "_clap_name";
-    _hitPoints = other._hitPoints;
-    _energyPoints = other._energyPoints;
-    _attackDamage = other._attackDamage;
+    ClapTrap::_hitPoints = other.ClapTrap::_hitPoints;
+    ClapTrap::_energyPoints = other.ClapTrap::_energyPoints;
+    ClapTrap::_attackDamage = other.ClapTrap::_attackDamage;
     std::cout << "DiamondTrap " << _name << " created with copy constructor." << std::endl;
 }
 
@@ -44,9 +46,9 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap &other) {
         ScavTrap::operator=(other);
         FragTrap::operator=(other);
         _name=other._name;
-        _hitPoints = other._hitPoints;
-        _energyPoints = other._energyPoints;
-        _attackDamage = other._attackDamage;
+        ClapTrap::_hitPoints = other.ClapTrap::_hitPoints;
+        ClapTrap::_energyPoints = other.ClapTrap::_energyPoints;
+        ClapTrap::_attackDamage = other.ClapTrap::_attackDamage;
         std::cout << "DiamondTrap " << _name << " assigned from another DiamondTrap." << std::endl;
     }
     return *this;
@@ -58,9 +60,9 @@ DiamondTrap::~DiamondTrap() {
 
 void DiamondTrap::getInfo(void) {
     std::cout << std::endl <<  "===Name: " << this->_name << "===" << std::endl;
-    std::cout << "Hitpoints: " << _hitPoints << std::endl;
-    std::cout << "Energy Points: " << _energyPoints << std::endl;
-    std::cout << "AttackDamage: " << _attackDamage << std::endl;
+    std::cout << "Hitpoints: " << ClapTrap::_hitPoints << std::endl;
+    std::cout << "Energy Points: " << ClapTrap::_energyPoints << std::endl;
+    std::cout << "AttackDamage: " << ClapTrap::_attackDamage << std::endl;
     std::cout << std::endl;
 }
 
